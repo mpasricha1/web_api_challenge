@@ -1,12 +1,12 @@
 var quizQuestions = questions
 var startBtn = document.querySelector("#startquiz")
+var questionText = document.querySelector("#question")
 var ulChoices = document.querySelector("#choices")
 var questionIndex = 0
 
 function generateQuestion(){
-	var question = document.querySelector("#question")
 
-	question.textContent = quizQuestions[questionIndex].question
+	questionText.textContent = quizQuestions[questionIndex].question
 
 	quizQuestions[questionIndex].choices.forEach((choice, index) => {
 		var li = document.createElement("li")
@@ -32,6 +32,9 @@ function compareAnswer(clickedAnswer){
 }; 
 
 function clearCurrentQuestion(){
+	if(questionIndex === quizQuestions.length - 1){
+		question.textContent = '';
+	}
 	ulChoices.innerHTML = '';
 }
 
