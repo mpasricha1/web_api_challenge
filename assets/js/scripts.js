@@ -1,18 +1,38 @@
 var quizQuestions = questions
 var startBtn = document.querySelector("#startquiz")
+var ulChoices = document.querySelector("#choices")
 var questionIndex = 0
 
-function generateQuestion(quizQuestions){
+function generateQuestion(){
 	var question = document.querySelector("#question")
 
 	question.textContent = quizQuestions[questionIndex].question
 
-	quizQuestions[questionIndex].choices.forEach(choice => {
-		var ul = document.querySelector("#choices")
+	quizQuestions[questionIndex].choices.forEach((choice, index) => {
 		var li = document.createElement("li")
-		li.appendChild(document.createTextNode(choice))
-		ul.appendChild(li)
+		var btn = document.createElement("button")
+		btn.type = 'button' 
+		btn.textContent = choice
+		btn.setAttribute("data-index", index)
+		li.appendChild(btn)
+		ulChoices.appendChild(li)
 	})
+};
+
+function compareAnswer(clickedAnswer){
+	console.log(clickedAnswer)
+	if(parseInt(clickedAnswer) === quizQuestions[questionIndex].answer){
+		alert("Right Answer"); 
+	}else{
+		alert("Wrong Answer");
+	}
+	clearCurrentQuestion();
+	questionIndex++;
+	generateQuestion();
+}; 
+
+function clearCurrentQuestion(){
+	ulChoices.innerHTML = '';
 }
 
 startBtn.addEventListener("click", function(){
@@ -24,5 +44,14 @@ startBtn.addEventListener("click", function(){
 		jumboTron.style.display = "none";
 	}
 
-	generateQuestion(quizQuestions)
+	generateQuestion();
+})
+
+ulChoices.addEventListener("click", function() {
+	event.preventDefault(); 
+
+	if(event.target.matches("button")){
+		var clickedAnswer = event.target.getAttribute("data-index")
+		compareAnswer(clickedAnswer);
+	}
 })

@@ -6,31 +6,31 @@ var questions = [
 	{
 		question: "Which tag is used to add javascript?", 
 		choices: ["h1", "script", "input", "href"], 
-		answer: "script"
+		answer: 1
 
 	},
 	{
 		question: "A repeatable set of code is called a ___", 
 		choices: ["variable", "for loop", "tag", "function"], 
-		answer: "function"
+		answer: 3
 
 	},
 	{
 		question: "An array can hold more than one value?", 
 		choices: ["True", "False"], 
-		answer: "True"
+		answer: 0
 
 	},
 	{
 		question: "Which of the following is NOT a conditional statement?", 
 		choices: ["return", "if", "else if", "else"], 
-		answer: "return"
+		answer: 0
 
 	},
 	{
 		question: "querySelector() is used to?", 
-		choices: ["Query a Database", "Select and element the page", "It does nothing", "Select querys from the page"], 
-		answer: ""
+		choices: ["Query a Database", "Select an element from the page", "It does nothing", "Select querys from the page"], 
+		answer: 1
 
 	}
 ]
