@@ -4,13 +4,13 @@
 
 var questions = [
 	{
-		question: "Which tag is used to add javascript?", 
+		question: "Which tag is used to add javascript to the page?", 
 		choices: ["h1", "script", "input", "href"], 
 		answer: 1
 
 	},
 	{
-		question: "A repeatable set of code is called a ___", 
+		question: "A repeatable set of code is called a ___?", 
 		choices: ["variable", "for loop", "tag", "function"], 
 		answer: 3
 

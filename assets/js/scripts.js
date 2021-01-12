@@ -1,8 +1,13 @@
-var quizQuestions = questions
-var startBtn = document.querySelector("#startquiz")
-var questionText = document.querySelector("#question")
-var ulChoices = document.querySelector("#choices")
-var questionIndex = 0
+var quizQuestions = questions;
+var startBtn = document.querySelector("#startquiz");
+var questionText = document.querySelector("#question");
+var ulChoices = document.querySelector("#choices");
+var timeEl = document.querySelector("#timeremaining");
+var scoreEl = document.querySelector("#score");
+var questionIndex = 0;
+var remainingTime = 150;
+var timerInterval; 
+var score = 0
 
 function generateQuestion(){
 
@@ -11,7 +16,7 @@ function generateQuestion(){
 	quizQuestions[questionIndex].choices.forEach((choice, index) => {
 		var li = document.createElement("li")
 		var btn = document.createElement("button")
-		btn.type = 'button' 
+		btn.setAttribute("class", "btn btn-outline-primary bt-lg")
 		btn.textContent = choice
 		btn.setAttribute("data-index", index)
 		li.appendChild(btn)
@@ -22,9 +27,9 @@ function generateQuestion(){
 function compareAnswer(clickedAnswer){
 	console.log(clickedAnswer)
 	if(parseInt(clickedAnswer) === quizQuestions[questionIndex].answer){
-		alert("Right Answer"); 
+		score+=25; 
 	}else{
-		alert("Wrong Answer");
+		remainingTime-=100;
 	}
 	clearCurrentQuestion();
 	questionIndex++;
@@ -34,8 +39,37 @@ function compareAnswer(clickedAnswer){
 function clearCurrentQuestion(){
 	if(questionIndex === quizQuestions.length - 1){
 		question.textContent = '';
+		displayScore();
 	}
 	ulChoices.innerHTML = '';
+};
+
+function startTimer(){
+	timeEl.textContent = remainingTime; 
+
+	timerInterval = setInterval(function(){
+		if(remainingTime <= 0){
+			stopTimer(); 
+			
+		}
+		remainingTime--;
+		timeEl.textContent = remainingTime;
+	}, 1000)
+}; 
+
+function stopTimer(){
+	clearInterval(timerInterval);
+	timeEl.textContent = 0;
+	displayScore();
+}; 
+
+function displayScore(){
+	if (highscore.style.display === "none"){
+		highscore.style.display = "block";
+		scoreEl.textContent = score;
+	}else{
+		highscore.style.display = "none";
+	}
 }
 
 startBtn.addEventListener("click", function(){
@@ -46,7 +80,7 @@ startBtn.addEventListener("click", function(){
 	}else{
 		jumboTron.style.display = "none";
 	}
-
+	startTimer();
 	generateQuestion();
 })
 

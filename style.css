@@ -4,3 +4,13 @@
   	left: 50%;
   	transform: translate(-50%, -50%);
 }
+#highscore{
+	display: none;
+	position: absolute;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+ul{
+	list-style-type: none;
+}

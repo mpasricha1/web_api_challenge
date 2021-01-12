@@ -17,11 +17,9 @@
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Start Over</a>
-      </li>
+	  <ul class="navbar-nav ml-auto">
+	  	<li class="nav-item">Time Remaining: <span id="timeremaining"></span></li>
+	  </ul>
 	</nav>
 	<div class="container-fluid"> 
 		<div class="row"> 
@@ -42,6 +40,19 @@
 						<h3 id="question"></h3>
 						<ul id="choices"></ul>
 					</div>
+				</div>
+			</div>
+			<div class="row"> 
+				<div id="highscore" class="col-md-3">
+					<h3>Finished!</h3>
+					<h3>Your final score is <span id="score">0</span></h3>
+					<form id="initialinput">
+						<div class="form-group">
+							<label for="initials">Enter your initials</label>
+							<input type="text" class="form-control" id="initials">
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
 				</div>
 			</div>
 		</div>
