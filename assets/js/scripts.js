@@ -4,8 +4,9 @@ var questionText = document.querySelector("#question");
 var ulChoices = document.querySelector("#choices");
 var timeEl = document.querySelector("#timeremaining");
 var scoreEl = document.querySelector("#score");
+var submitBtn = document.querySelector("#submitinitials");
 var questionIndex = 0;
-var remainingTime = 150;
+var remainingTime = 120;
 var timerInterval; 
 var score = 0
 
@@ -29,7 +30,7 @@ function compareAnswer(clickedAnswer){
 	if(parseInt(clickedAnswer) === quizQuestions[questionIndex].answer){
 		score+=25; 
 	}else{
-		remainingTime-=100;
+		remainingTime-=20;
 	}
 	clearCurrentQuestion();
 	questionIndex++;
@@ -91,4 +92,9 @@ ulChoices.addEventListener("click", function() {
 		var clickedAnswer = event.target.getAttribute("data-index")
 		compareAnswer(clickedAnswer);
 	}
-})
+});
+
+submitBtn.addEventListener("click", function() {
+	localStorage.setItem("score", score)
+	localStorage.setItem("initials", initials.value)
+});
