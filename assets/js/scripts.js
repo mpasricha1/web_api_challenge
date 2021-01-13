@@ -6,7 +6,7 @@ var timeEl = document.querySelector("#timeremaining");
 var scoreEl = document.querySelector("#score");
 var submitBtn = document.querySelector("#submitinitials");
 var questionIndex = 0;
-var remainingTime = 5;
+var remainingTime = 120;
 var timerInterval; 
 var score = 0
 
@@ -59,10 +59,11 @@ function startTimer(){
 }; 
 
 function stopTimer(){
+	timeEl.textContent = 0;
 	clearInterval(timerInterval);
 	clearCurrentQuestion();
 	displayScore();
-	timeEl.textContent = 0;
+	
 }; 
 
 function displayScore(){
@@ -96,6 +97,7 @@ ulChoices.addEventListener("click", function() {
 });
 
 submitBtn.addEventListener("click", function() {
-	localStorage.setItem("score", score)
-	localStorage.setItem("initials", initials.value)
+	localStorage.setItem("score", JSON.stringify(score));
+	localStorage.setItem("initials", initials.value);
+	highscore.style.display = "none"
 });
