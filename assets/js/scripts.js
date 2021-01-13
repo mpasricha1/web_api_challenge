@@ -18,6 +18,7 @@ function generateQuestion(){
 		var li = document.createElement("li")
 		var btn = document.createElement("button")
 		btn.setAttribute("class", "btn btn-outline-primary bt-lg")
+		btn.setAttribute("style", "width:100%")
 		btn.textContent = choice
 		btn.setAttribute("data-index", index)
 		li.appendChild(btn)
@@ -67,7 +68,7 @@ function stopTimer(){
 }; 
 
 function displayScore(){
-	if (highscore.style.display === "none" || highscore.style.display === ''){
+	if (highscore.style.display === "none" ){
 		highscore.style.display = "block";
 		scoreEl.textContent = score;
 	}else{
@@ -99,5 +100,4 @@ ulChoices.addEventListener("click", function() {
 submitBtn.addEventListener("click", function() {
 	localStorage.setItem("score", JSON.stringify(score));
 	localStorage.setItem("initials", initials.value);
-	highscore.style.display = "none"
 });
