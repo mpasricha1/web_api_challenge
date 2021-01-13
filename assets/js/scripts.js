@@ -6,7 +6,7 @@ var timeEl = document.querySelector("#timeremaining");
 var scoreEl = document.querySelector("#score");
 var submitBtn = document.querySelector("#submitinitials");
 var questionIndex = 0;
-var remainingTime = 120;
+var remainingTime = 5;
 var timerInterval; 
 var score = 0
 
@@ -26,22 +26,22 @@ function generateQuestion(){
 };
 
 function compareAnswer(clickedAnswer){
-	console.log(clickedAnswer)
 	if(parseInt(clickedAnswer) === quizQuestions[questionIndex].answer){
-		score+=25; 
+		score+=20; 
 	}else{
 		remainingTime-=20;
 	}
 	clearCurrentQuestion();
 	questionIndex++;
-	generateQuestion();
+	if(questionIndex === quizQuestions.length){
+		stopTimer();
+	}else{
+		generateQuestion();
+	}
 }; 
 
 function clearCurrentQuestion(){
-	if(questionIndex === quizQuestions.length - 1){
-		question.textContent = '';
-		displayScore();
-	}
+	question.textContent = '';
 	ulChoices.innerHTML = '';
 };
 
@@ -51,7 +51,6 @@ function startTimer(){
 	timerInterval = setInterval(function(){
 		if(remainingTime <= 0){
 			stopTimer(); 
-			
 		}
 		remainingTime--;
 		timeEl.textContent = remainingTime;
@@ -60,18 +59,19 @@ function startTimer(){
 
 function stopTimer(){
 	clearInterval(timerInterval);
+	clearCurrentQuestion();
 	timeEl.textContent = 0;
 	displayScore();
 }; 
 
 function displayScore(){
-	if (highscore.style.display === "none"){
+	if (highscore.style.display === "none" || highscore.style.display === ''){
 		highscore.style.display = "block";
 		scoreEl.textContent = score;
 	}else{
 		highscore.style.display = "none";
 	}
-}
+};
 
 startBtn.addEventListener("click", function(){
 	var jumboTron = document.querySelector(".jumbotron")
