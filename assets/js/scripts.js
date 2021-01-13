@@ -51,6 +51,7 @@ function startTimer(){
 	timerInterval = setInterval(function(){
 		if(remainingTime <= 0){
 			stopTimer(); 
+			return;
 		}
 		remainingTime--;
 		timeEl.textContent = remainingTime;
@@ -60,8 +61,8 @@ function startTimer(){
 function stopTimer(){
 	clearInterval(timerInterval);
 	clearCurrentQuestion();
-	timeEl.textContent = 0;
 	displayScore();
+	timeEl.textContent = 0;
 }; 
 
 function displayScore(){
