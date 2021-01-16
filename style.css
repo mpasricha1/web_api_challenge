@@ -1,4 +1,7 @@
-.jumbotron, #quizquestions{
+ul{
+	list-style-type: none;
+}
+.jumbotron, #quizquestions, #card{
 	position: absolute;
 	top: 50%;
   	left: 50%;
@@ -10,6 +13,9 @@
   	left: 50%;
   	transform: translate(-50%, -50%);
 }
-ul{
-	list-style-type: none;
+.nav-item {
+	color: white;
+}
+.card-header{
+	font-size: 20px;
 }

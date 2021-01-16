@@ -5,6 +5,9 @@ var ulChoices = document.querySelector("#choices");
 var timeEl = document.querySelector("#timeremaining");
 var scoreEl = document.querySelector("#score");
 var submitBtn = document.querySelector("#submitinitials");
+var highScoreBtn = document.querySelector(".navbar-brand");
+var jumboTron = document.querySelector(".jumbotron")
+var tableBody = document.querySelector("#tablebody")
 var questionIndex = 0;
 var remainingTime = 120;
 var timerInterval; 
@@ -18,7 +21,7 @@ function generateQuestion(){
 	quizQuestions[questionIndex].choices.forEach((choice, index) => {
 		var li = document.createElement("li")
 		var btn = document.createElement("button")
-		btn.setAttribute("class", "btn btn-outline-primary bt-lg")
+		btn.setAttribute("class", "btn btn-outline-dark bt-lg")
 		btn.setAttribute("style", "width:100%")
 		btn.textContent = choice
 		btn.setAttribute("data-index", index)
@@ -78,7 +81,6 @@ function displayScore(){
 };
 
 startBtn.addEventListener("click", function(){
-	var jumboTron = document.querySelector(".jumbotron")
 
 	if (jumboTron.style.display === "none"){
 		jumboTron.style.display = "block";
@@ -106,11 +108,11 @@ submitBtn.addEventListener("click", function() {
 
 	if(window.localStorage.length === 0){
 		var userDataArr = []; 
-		userDataArr.push(userData)
-		localStorage.setItem("userDataArr", JSON.stringify(userDataArr))
-	}else {
-		var userDataArr = JSON.parse(localStorage.getItem("userDataArr"))
 		userDataArr.push(userData);
-		localStorage.setItem("userDataArr", JSON.stringify(userDataArr))
+		localStorage.setItem("userDataArr", JSON.stringify(userDataArr));
+	}else {
+		var userDataArr = JSON.parse(localStorage.getItem("userDataArr"));
+		userDataArr.push(userData);
+		localStorage.setItem("userDataArr", JSON.stringify(userDataArr));
 	}
 });
