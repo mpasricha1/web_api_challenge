@@ -7,7 +7,7 @@
 	<li>CSS</li>
 	<li>Javascript</li> 
 </ul> 
-<h3>Object</h3> 
+<h3>Objective</h3> 
 <p>The objects of this assignment was to create a code quiz page from scratch. A user is presented with a quiz when then view the page. There are 5 questions to this quiz but more 
 can be easily added by adding more quesitons to the questions.js file. This file holds an array of objects. The object consists of the question itself, 4 choices and an answer.</p
 
@@ -18,9 +18,9 @@ for 100 points. When the quiz ends the user is promted to enter their intials to
 <h3>Files</h3> 
 <h4>HTML</h4> 
 <ul>
-	<li>index.html<li>
+	<li>index.html</li>
 	<li>highscore.html</li> 
-<ul> 
+</ul> 
 <p>These are the two html files for the quiz. index.html is the main page, this is where the quiz, timer and score input are housed. highscore.html is the page that shows a table of the 
 top 5 users initials and their score.</p> 
 <h4>Javascript</h4> 
