@@ -1,5 +1,5 @@
 <H1>Code Quiz<h1>
-<p>URL: https://git.heroku.com/serene-scrubland-97632.git</p>
+<p>URL: https://serene-scrubland-97632.herokuapp.com/</p>
 <h2>Overview</h2>
 <h3>Technologies Used</h3>
 <ul>
