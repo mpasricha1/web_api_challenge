@@ -10,6 +10,7 @@ var remainingTime = 120;
 var timerInterval; 
 var score = 0
 
+
 function generateQuestion(){
 
 	questionText.textContent = quizQuestions[questionIndex].question
@@ -98,6 +99,18 @@ ulChoices.addEventListener("click", function() {
 });
 
 submitBtn.addEventListener("click", function() {
-	localStorage.setItem("score", JSON.stringify(score));
-	localStorage.setItem("initials", initials.value);
+	var userData = {
+		score: score, 
+		initials: initials.value
+	};
+
+	if(window.localStorage.length === 0){
+		var userDataArr = []; 
+		userDataArr.push(userData)
+		localStorage.setItem("userDataArr", JSON.stringify(userDataArr))
+	}else {
+		var userDataArr = JSON.parse(localStorage.getItem("userDataArr"))
+		userDataArr.push(userData);
+		localStorage.setItem("userDataArr", JSON.stringify(userDataArr))
+	}
 });
